@@ -8,12 +8,12 @@ def return_setences(string, grammar, head = [], structure = [])
   array = [];
   if string.empty?
     if !structure.include?(:verb)
-      abort('[]')
+      puts "[]"
     elsif structure.include?(:verb) && structure.include?(:noun) && structure.count(:article) == 0
       array.push(head.join(' '));
       puts array
     elsif structure.include?(:verb) && !structure.include?(:noun) && structure.count(:article) < 2
-      abort('[]')
+      puts "[]"
     else structure.include?(:verb) || structure.include?(:noun) || structure.count(:article) > 2
       array.push(head.join(' '));
       puts array
@@ -28,6 +28,3 @@ def return_setences(string, grammar, head = [], structure = [])
     end
   end
 end
-
-
-return_setences("abcdefg", grammar)

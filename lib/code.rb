@@ -28,3 +28,6 @@ def return_sentences(string, grammar, head = [], structure = [])
     end
   end
 end
+
+
+return_sentences("abcdefg", grammar)

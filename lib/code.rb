@@ -4,7 +4,7 @@ grammar = {
   article:  ["a", "ac", "e"]}
 
 
-def return_setences(string, grammar, head = [], structure = [])
+def return_sentences(string, grammar, head = [], structure = [])
   array = [];
   if string.empty?
     if !structure.include?(:verb)
@@ -22,9 +22,12 @@ def return_setences(string, grammar, head = [], structure = [])
     grammar.each do |type, words|
       words.each do |word|
         if string.start_with?(word)
-          return_setences(string.slice(word.size..-1), grammar, head + [word], structure + [type])
+          return_sentences(string.slice(word.size..-1), grammar, head + [word], structure + [type])
         end
       end
     end
   end
 end
+
+
+return_sentences("abcdefg", grammar)

@@ -7,7 +7,17 @@ grammar = {
 def return_setences(string, grammar, head = [], structure = [])
   array = [];
   if string.empty?
-    puts "placeholder for logic"
+    if !structure.include?(:verb)
+      abort('[]')
+    elsif structure.include?(:verb) && structure.include?(:noun) && structure.count(:article) == 0
+      array.push(head.join(' '));
+      puts array
+    elsif structure.include?(:verb) && !structure.include?(:noun) && structure.count(:article) < 2
+      abort('[]')
+    else structure.include?(:verb) || structure.include?(:noun) || structure.count(:article) > 2
+      array.push(head.join(' '));
+      puts array
+    end
   else
     grammar.each do |type, words|
       words.each do |word|
